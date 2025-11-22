@@ -1,0 +1,1 @@
+# Calligra-Office-Appimage
