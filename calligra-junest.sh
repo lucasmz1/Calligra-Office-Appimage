@@ -115,7 +115,7 @@ export NVIDIA_ON=1
 # AppRun footer, here you can add options and change the way the AppImage interacts with its internal structure
 cat <<-'HEREDOC' >> AppDir/AppRun
 export $(dbus-launch)
-_JUNEST_CMD -- /usr/bin/calligralauncher "$@
+_JUNEST_CMD -- /usr/bin/calligralauncher "$@"
 HEREDOC
 chmod a+x AppDir/AppRun
 
