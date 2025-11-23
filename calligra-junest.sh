@@ -114,33 +114,8 @@ export NVIDIA_ON=1
 
 # AppRun footer, here you can add options and change the way the AppImage interacts with its internal structure
 cat <<-'HEREDOC' >> AppDir/AppRun
-
-case $1 in
-'')
-echo "
- USAGE: 
-    [PROGRAM]
-    [PROGRAM] [OPTION]
-
- See -h to know the names of the available programs.
-"; exit;;
--h|--help) echo "
- AVAILABLE PROGRAMS:
- 
-    calligraconverter
-    calligralauncher
-    calligrasheets
-    calligrastage
-    calligrawords
-    karbon
-";;
-calligraconverter|calligralauncher|calligrasheets|calligrastage|calligrawords|karbon) 
-_JUNEST_CMD -- /usr/bin/"$@"
-;;
-*)
-echo " $1 does not exists, see -h";;
-esac
-
+export $(dbus-launch)
+_JUNEST_CMD -- /usr/bin/calligralauncher "$@
 HEREDOC
 chmod a+x AppDir/AppRun
 
